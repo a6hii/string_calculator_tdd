@@ -50,4 +50,24 @@ void main() {
     expect(add(',' * 1000), 0);
     expect(add('\n' * 1000), 0);
   });
+  test('returns 0 for string with only delimiters', () {
+    expect(add(','), 0);
+    expect(add('\n'), 0);
+    expect(add(',\n,'), 0);
+  });
+
+  test('ignores empty values between delimiters', () {
+    expect(add('1,,2'), 3);
+    expect(add('1,\n,2'), 3);
+  });
+
+  test('handles input with spaces', () {
+    expect(add(' 1, 2 '), 3);
+    expect(add('1 ,2, 3'), 6);
+  });
+
+  test('handles input with leading and trailing delimiters', () {
+    expect(add(',1,2,'), 3);
+    expect(add('\n1\n2\n'), 3);
+  });
 }
