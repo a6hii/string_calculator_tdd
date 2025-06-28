@@ -8,4 +8,8 @@ void main() {
     expect(add('1'), 1);
     expect(add('42'), 42);
   });
+  test('returns the sum for two comma-separated numbers', () {
+    expect(add('1,2'), 3);
+    expect(add('10,5'), 15);
+  });
 }
