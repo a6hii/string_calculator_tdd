@@ -123,4 +123,8 @@ void main() {
     expect(add('//[abc][def]\n1abc2def3'), 6);
     expect(add('//[longdelim][!!]\n5longdelim5!!5'), 15);
   });
+  test('returns 0 for only custom delimiters and no numbers', () {
+    expect(add('//[***]\n***'), 0);
+    expect(add('//[abc][def]\nabc'), 0);
+  });
 }
