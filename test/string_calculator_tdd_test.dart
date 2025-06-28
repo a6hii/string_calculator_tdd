@@ -31,4 +31,11 @@ void main() {
             e is Exception &&
             e.toString().contains('negative numbers not allowed -2'))));
   });
+  test('shows all negative numbers in exception message', () {
+    expect(
+        () => add('-1,-2,3'),
+        throwsA(predicate((e) =>
+            e is Exception &&
+            e.toString().contains('negative numbers not allowed -1,-2'))));
+  });
 }
