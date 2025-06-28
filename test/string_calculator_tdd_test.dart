@@ -46,4 +46,8 @@ void main() {
     expect(add('   '), 0);
     expect(add('\n  ,  \n'), 0);
   });
+  test('returns 0 for a very long string of only delimiters', () {
+    expect(add(',' * 1000), 0);
+    expect(add('\n' * 1000), 0);
+  });
 }
