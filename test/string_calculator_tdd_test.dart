@@ -76,4 +76,9 @@ void main() {
     expect(add('1000,1'), 1001); // 1000 should be included
     expect(add('1234,1,1001,2'), 3);
   });
+  test('returns the sum for an unknown amount of numbers', () {
+    expect(add('1,2,3,4,5,6,7,8,9,10'), 55);
+    expect(add('10,20,30,40,50,60,70,80,90,100'), 550);
+    expect(add(List.generate(100, (i) => '${i + 1}').join(',')), 5050);
+  });
 }
