@@ -133,4 +133,15 @@ void main() {
   test('supports custom delimiter containing numbers', () {
     expect(add('//[delim1]\n1delim12delim13'), 6);
   });
+  test('returns 0 for input with only delimiters and whitespace', () {
+    expect(add(' , \n , '), 0);
+  });
+  test('supports multiple custom delimiters with special characters', () {
+    expect(add('//[.*][%]\n1.*2%3'), 6);
+    expect(add('//[+][?]\n1+2?3'), 6);
+  });
+  test('supports custom delimiter with regex special characters', () {
+    expect(add('//[.*?]\n1.*?2.*?3'), 6);
+    expect(add('//[+]\n1+2+3'), 6);
+  });
 }
