@@ -42,4 +42,8 @@ void main() {
     expect(() => add('abc'), throwsA(isA<Exception>()));
     expect(() => add('1,2,three'), throwsA(isA<Exception>()));
   });
+  test('returns 0 for whitespace only', () {
+    expect(add('   '), 0);
+    expect(add('\n  ,  \n'), 0);
+  });
 }
