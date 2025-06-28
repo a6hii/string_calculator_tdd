@@ -127,4 +127,7 @@ void main() {
     expect(add('//[***]\n***'), 0);
     expect(add('//[abc][def]\nabc'), 0);
   });
+  test('handles mixed delimiters and whitespace', () {
+    expect(add(' 1 ,\n2 , 3 '), 6);
+  });
 }
