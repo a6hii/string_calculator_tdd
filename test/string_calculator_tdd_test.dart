@@ -69,6 +69,15 @@ void main() {
     expect(add(',1,2,'), 3);
     expect(add('\n1\n2\n'), 3);
   });
+  test('throws exception for numbers that are too big', () {
+    expect(() => add('1,100000000000000000000000'), throwsA(isA<Exception>()));
+    expect(() => add('999999999999999999999999'), throwsA(isA<Exception>()));
+  });
+  test('throws exception for input with special characters', () {
+    expect(() => add('1,2,\$'), throwsA(isA<Exception>()));
+    expect(() => add('1,2,@'), throwsA(isA<Exception>()));
+    expect(() => add('1,2,3!'), throwsA(isA<Exception>()));
+  });
 
   // Special rules
   test('ignores numbers bigger than 1000', () {
