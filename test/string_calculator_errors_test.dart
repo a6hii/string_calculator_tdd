@@ -29,4 +29,19 @@ void main() {
     expect(() => add('abc'), throwsA(isA<Exception>()));
     expect(() => add('1,2,three'), throwsA(isA<Exception>()));
   });
+  test('throws exception for input with mixed valid and invalid numbers', () {
+    expect(() => add('1,2,three,4'), throwsA(isA<Exception>()));
+    expect(() => add('1,2,3.5'),
+        throwsA(isA<Exception>())); // if only integers allowed
+  });
+
+  test('throws exception for input with negative and invalid numbers', () {
+    expect(() => add('-1,abc'), throwsA(isA<Exception>()));
+    expect(() => add('-1,-2,xyz'), throwsA(isA<Exception>()));
+  });
+
+  test('throws exception for input with only whitespace and invalid chars', () {
+    expect(() => add('   abc   '), throwsA(isA<Exception>()));
+    expect(() => add('\n @ \n'), throwsA(isA<Exception>()));
+  });
 }
