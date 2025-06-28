@@ -110,7 +110,7 @@ void main() {
 
   test('supports custom delimiter of any length', () {
     expect(add('//[***]\n1***2***3'), 6);
-    expect(add('//[abc]\n4abc5abc6'), 15);
+    expect(add('//[abcd]\n4abcd5abcd6'), 15);
   });
 
   test('supports multiple custom delimiters', () {
