@@ -16,4 +16,8 @@ void main() {
     expect(add('1,2,3,4'), 10);
     expect(add('5,5,5,5,5'), 25);
   });
+  test('handles new lines as delimiters', () {
+    expect(add('1\n2,3'), 6);
+    expect(add('4\n5\n6'), 15);
+  });
 }
