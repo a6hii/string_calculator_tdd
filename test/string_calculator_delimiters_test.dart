@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import '../lib/string_calculator_tdd.dart';
+import 'package:string_calculator_tdd/string_calculator_tdd.dart';
 
 void main() {
   test('supports custom single-character delimiter', () {
