@@ -130,4 +130,7 @@ void main() {
   test('handles mixed delimiters and whitespace', () {
     expect(add(' 1 ,\n2 , 3 '), 6);
   });
+  test('supports custom delimiter containing numbers', () {
+    expect(add('//[delim1]\n1delim12delim13'), 6);
+  });
 }
