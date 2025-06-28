@@ -38,4 +38,8 @@ void main() {
             e is Exception &&
             e.toString().contains('negative numbers not allowed -1,-2'))));
   });
+  test('throws exception for completely invalid string', () {
+    expect(() => add('abc'), throwsA(isA<Exception>()));
+    expect(() => add('1,2,three'), throwsA(isA<Exception>()));
+  });
 }
