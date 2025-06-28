@@ -107,4 +107,20 @@ void main() {
     expect(() => add('abc'), throwsA(isA<Exception>()));
     expect(() => add('1,2,three'), throwsA(isA<Exception>()));
   });
+
+  test('supports custom delimiter of any length', () {
+    expect(add('//[***]\n1***2***3'), 6);
+    expect(add('//[abc]\n4abc5abc6'), 15);
+  });
+
+  test('supports multiple custom delimiters', () {
+    expect(add('//[*][%]\n1*2%3'), 6);
+    expect(add('//[;][!]\n2;3!4'), 9);
+  });
+
+  test('supports multiple custom delimiters with length > 1', () {
+    expect(add('//[***][%%]\n1***2%%3'), 6);
+    expect(add('//[abc][def]\n1abc2def3'), 6);
+    expect(add('//[longdelim][!!]\n5longdelim5!!5'), 15);
+  });
 }
