@@ -70,4 +70,10 @@ void main() {
     expect(add(',1,2,'), 3);
     expect(add('\n1\n2\n'), 3);
   });
+
+  test('ignores numbers bigger than 1000', () {
+    expect(add('2,1001'), 2);
+    expect(add('1000,1'), 1001); // 1000 should be included
+    expect(add('1234,1,1001,2'), 3);
+  });
 }
