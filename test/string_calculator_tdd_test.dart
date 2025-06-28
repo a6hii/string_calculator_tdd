@@ -12,4 +12,8 @@ void main() {
     expect(add('1,2'), 3);
     expect(add('10,5'), 15);
   });
+  test('returns the sum for multiple comma-separated numbers', () {
+    expect(add('1,2,3,4'), 10);
+    expect(add('5,5,5,5,5'), 25);
+  });
 }
